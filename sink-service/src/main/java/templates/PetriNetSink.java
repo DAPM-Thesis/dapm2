@@ -38,7 +38,7 @@
 //        try {
 //            fromGraph(dotGraph)
 //                    .render(SVG)
-//                    .toFile(new File("ingestion/src/main/resources/sinks/outputs/petriNet.svg"));
+//                    .toFile(new File("sink/src/main/resources/sinks/outputs/petriNet.svg"));
 //        } catch (Exception e) {
 //            throw new RuntimeException("Failed to render PetriNet", e);
 //        }

@@ -1,0 +1,74 @@
+networks:
+  kafka-cluster:
+    name: kafka-cluster
+    external: true
+    driver: bridge
+
+services:
+  zookeeper-sink:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper-sink
+    restart: always
+    networks:
+      - kafka-cluster
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      ZOO_MY_ID: 1
+    ports:
+      - "62181:2181"
+
+  kafka-sink:
+    hostname: kafka-sink
+    container_name: kafka-sink
+    depends_on:
+      - zookeeper-sink
+    networks:
+      - kafka-cluster
+    image: confluentinc/cp-kafka:latest
+    restart: always
+    ports:
+      - "9062:9062"
+      - "29062:29062"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181,zookeeper-2:2181,zookeeper-3:2181,zookeeper-sink:2181,zookeeper-ingestion:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-sink:9062,PLAINTEXT_HOST://localhost:29062
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+
+#  postgresDB-A:
+#    image: postgres
+#    container_name: postgres-A
+#    restart: always
+#    shm_size: 128mb
+#    environment:
+#      POSTGRES_DB: dapm_ingestion
+#      POSTGRES_USER: dapm_user
+#      POSTGRES_PASSWORD: 123456
+#    ports:
+#      - "5432:5432"
+#
+#  adminer-A:
+#    image: adminer
+#    container_name: adminer-A
+#    restart: always
+#    ports:
+#      - "8085:8080"
+#  mongo-A:
+#    image: mongo:6
+#    container_name: mongo-A
+#    restart: always
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: dapm_user
+#      MONGO_INITDB_ROOT_PASSWORD: 123456
+#      MONGO_INITDB_DATABASE: dapm_mapping_table
+#    ports:
+#      - "27017:27017"
+#    volumes:
+#      - mongo-data:/data/db
+#
+#volumes:
+#  mongo-data:
