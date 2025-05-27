@@ -16,9 +16,9 @@ public class IngestionApplication {
 
         TemplateRepository templateRepository = context.getBean(TemplateRepository.class);
         templateRepository.storeTemplate("SimpleSource", SourceA.class);
-        templateRepository.storeTemplate("SimpleSink", SinkA.class);
-        templateRepository.storeTemplate("EventSource", EventSource.class);
-        templateRepository.storeTemplate("PetriNetSink", PetriNetSink.class);
-        templateRepository.storeTemplate("LanguageFilter", LanguageFilter.class);
+//        templateRepository.storeTemplate("SimpleSink", SinkA.class);
+//        templateRepository.storeTemplate("EventSource", EventSource.class);
+//        templateRepository.storeTemplate("PetriNetSink", PetriNetSink.class);
+//        templateRepository.storeTemplate("LanguageFilter", LanguageFilter.class);
     }
 }
