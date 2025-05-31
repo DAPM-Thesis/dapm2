@@ -1,5 +1,5 @@
 // AnonymizationProcess.java
-package com.dapm2.ingestion.preProcessingElements;
+package com.dapm2.ingestion.processingStages;
 
 import com.dapm2.ingestion.config.SpringContext;
 import com.dapm2.ingestion.entity.AnonymizationRule;

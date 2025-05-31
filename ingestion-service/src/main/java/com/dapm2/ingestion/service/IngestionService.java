@@ -1,7 +1,7 @@
 //// src/main/java/com/dapm2.ingestion/service/IngestionService.java
 //package com.dapm2.ingestion.service;
 //
-//import com.dapm2.ingestion.preProcessingElements.streamSources.SSEStreamSource;
+//import com.dapm2.ingestion.processingStages.streamSources.SSEStreamSource;
 //import communication.message.impl.event.Event;
 //import org.springframework.stereotype.Service;
 //import reactor.core.publisher.Flux;

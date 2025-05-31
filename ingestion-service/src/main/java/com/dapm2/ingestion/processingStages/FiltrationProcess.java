@@ -1,4 +1,4 @@
-package com.dapm2.ingestion.preProcessingElements;
+package com.dapm2.ingestion.processingStages;
 
 import com.dapm2.ingestion.config.SpringContext;
 import com.dapm2.ingestion.entity.FilterConfig;
@@ -31,7 +31,7 @@ public class FiltrationProcess {
             @SuppressWarnings("unchecked")
             Map<String, Object> parsed =
                     mapper.readValue(config.getFilters(), Map.class);
-            System.out.println("Filtered Id");
+//            System.out.println("Filtered Id");
             return new FiltrationProcess(parsed);
         } catch (Exception e) {
             throw new RuntimeException("Failed to parse filters", e);
@@ -57,7 +57,7 @@ public class FiltrationProcess {
             if (expectedValue instanceof Boolean) {
                 boolean actualBool = actualNode.asBoolean(false);
                 if (actualBool != (Boolean) expectedValue) {
-                    System.out.println("Filtered False1");
+//                    System.out.println("Filtered False1");
                     return false;
                 }
                 continue;
@@ -67,11 +67,11 @@ public class FiltrationProcess {
             String actualText = actualNode.asText(null);
             if (actualText == null
                     || !actualText.equals(expectedValue.toString())) {
-                System.out.println("Filtered False2");
+//                System.out.println("Filtered False2");
                 return false;
             }
         }
-        System.out.println("Filtered True");
+//        System.out.println("Filtered True");
         return true;
     }
 }

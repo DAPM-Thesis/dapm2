@@ -1,8 +1,8 @@
 package templates;
 
-import com.dapm2.ingestion.preProcessingElements.AnonymizationProcess;
-import com.dapm2.ingestion.preProcessingElements.AttributeSettingProcess;
-import com.dapm2.ingestion.preProcessingElements.FiltrationProcess;
+import com.dapm2.ingestion.processingStages.AnonymizationProcess;
+import com.dapm2.ingestion.processingStages.AttributeMappingProcess;
+import com.dapm2.ingestion.processingStages.FiltrationProcess;
 import communication.message.impl.event.Event;
 import pipeline.processingelement.Configuration;
 import pipeline.processingelement.source.SimpleSource;
@@ -19,9 +19,9 @@ public class SourceA extends SimpleSource<Event> {
     private static final long   ATTRIBUTE_ID = 1L;
     private static final String SOURCE_ID    = "wiki-edit";
 
-    private FiltrationProcess       filtrationProcess ;
-    private AnonymizationProcess    anonymizationProcess;
-    private AttributeSettingProcess attributeProcess;
+    private FiltrationProcess       filtrationProcess = FiltrationProcess.fromFilterId(FILTERING_ID);
+    private AnonymizationProcess    anonymizationProcess = AnonymizationProcess.fromDataSourceId(SOURCE_ID);
+    private AttributeMappingProcess attributeProcess = AttributeMappingProcess.fromSettingId(ATTRIBUTE_ID);
 
     public SourceA(Configuration configuration) {
         super(configuration);
@@ -34,10 +34,8 @@ public class SourceA extends SimpleSource<Event> {
             System.out.println("Lazy init of pipeline steps");
             this.filtrationProcess    = FiltrationProcess.fromFilterId(FILTERING_ID);
             this.anonymizationProcess = AnonymizationProcess.fromDataSourceId(SOURCE_ID);
-            this.attributeProcess     = AttributeSettingProcess.fromSettingId(ATTRIBUTE_ID);
+            this.attributeProcess     = AttributeMappingProcess.fromSettingId(ATTRIBUTE_ID);
         }
-
-        System.out.println("SourceA into!!");
 
         JsonNode json = WebClient.create()
                 .get()
@@ -52,15 +50,15 @@ public class SourceA extends SimpleSource<Event> {
             throw new RuntimeException("Timed out waiting for a Wikipedia edit event");
         }
 
-        System.out.println("Filtration Step into!!");
         if (!filtrationProcess.shouldPass(json)) {
-            System.out.println("  → filtered out, pulling next…");
+            System.out.println("filtered out, pulling next…");
             return null;  // will cause SimpleSource to call process() again
         }
 
         json = anonymizationProcess.apply(json);
 
         Event dapmEvent = attributeProcess.extractEvent(json);
+        System.out.println("Event Ingested!!!");
         return dapmEvent;
     }
 }

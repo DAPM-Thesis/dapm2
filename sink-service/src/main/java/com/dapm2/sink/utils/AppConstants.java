@@ -16,4 +16,8 @@ public class AppConstants {
     public static final String MAPPING_Table_REFERENCE = "mappingTableRef";
     public static final boolean ANONYMIZE_STATUS_TRUE = true;
     public static final boolean ANONYMIZE_STATUS_FALSE = false;
+    // Database credentials (hard‐coded or read from env vars)
+    public static final String JDBC_URL      = "jdbc:postgresql://localhost:5432/dapm_ingestion";
+    public static final String JDBC_USER     = "dapm_user";
+    public static final String JDBC_PASSWORD = "123456";
 }

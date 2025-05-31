@@ -1,4 +1,4 @@
-package com.dapm2.ingestion.preProcessingElements;
+package com.dapm2.ingestion.processingStages;
 
 import com.dapm2.ingestion.config.SpringContext;
 import com.dapm2.ingestion.entity.AttributeSetting;
@@ -17,13 +17,13 @@ import java.util.stream.Collectors;
  * Processes incoming JSON payloads into Event messages,
  * dynamically extracting both flat (primitive) and nested fields.
  */
-public class AttributeSettingProcess {
+public class AttributeMappingProcess {
 
     private final String caseIdField;
     private final String activityField;
     private final String timestampField;
 
-    public AttributeSettingProcess(String caseIdField,
+    public AttributeMappingProcess(String caseIdField,
                                    String activityField,
                                    String timestampField) {
         this.caseIdField   = caseIdField;
@@ -34,14 +34,14 @@ public class AttributeSettingProcess {
     /**
      * Fetch the three core JSON‐paths from the DB and build a processor.
      */
-    public static AttributeSettingProcess fromSettingId(Long id) {
+    public static AttributeMappingProcess fromSettingId(Long id) {
         StreamConfigurationService svc =
                 SpringContext.getBean(StreamConfigurationService.class);
         AttributeSetting setting = svc.getAttributeSettingById(id);
         if (setting == null) {
             throw new IllegalStateException("No AttributeSetting for id " + id);
         }
-        return new AttributeSettingProcess(
+        return new AttributeMappingProcess(
                 setting.getCaseId(),
                 setting.getActivity(),
                 setting.getTimeStamp()

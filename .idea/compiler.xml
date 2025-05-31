@@ -8,16 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ingestion-service" />
+        <module name="sink-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="orgA" target="21" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ingestion-service" options="-parameters" />
-      <module name="orgA" options="-parameters" />
+      <module name="sink-service" options="-parameters" />
     </option>
   </component>
 </project>
