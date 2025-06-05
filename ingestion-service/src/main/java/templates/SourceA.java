@@ -1,8 +1,6 @@
 package templates;
 
-import com.dapm2.ingestion.processingStages.AnonymizationProcess;
-import com.dapm2.ingestion.processingStages.AttributeMappingProcess;
-import com.dapm2.ingestion.processingStages.FiltrationProcess;
+import com.dapm2.ingestion.processingStages.*;
 import communication.message.impl.event.Event;
 import pipeline.processingelement.Configuration;
 import pipeline.processingelement.source.SimpleSource;
@@ -14,32 +12,26 @@ import java.time.Duration;
 
 public class SourceA extends SimpleSource<Event> {
 
-    private static final String SSE_URL      = "https://stream.wikimedia.org/v2/stream/recentchange";
-    private static final long   FILTERING_ID = 1L;
-    private static final long   ATTRIBUTE_ID = 1L;
-    private static final String SOURCE_ID    = "wiki-edit";
-
-    private FiltrationProcess       filtrationProcess = FiltrationProcess.fromFilterId(FILTERING_ID);
-    private AnonymizationProcess    anonymizationProcess = AnonymizationProcess.fromDataSourceId(SOURCE_ID);
-    private AttributeMappingProcess attributeProcess = AttributeMappingProcess.fromSettingId(ATTRIBUTE_ID);
+    private String sseUrl;
+    private FiltrationProcess filtrationProcess;
+    private AnonymizationProcess anonymizationProcess;
+    private AttributeMappingProcess attributeProcess;
 
     public SourceA(Configuration configuration) {
         super(configuration);
+        sseUrl = EventSourceConfig.getEventSourceUrl(configuration);
+        filtrationProcess = FiltrationProcess.getFilterConfig(configuration);
+        anonymizationProcess = AnonymizationProcess.getAnonymizationConfig(configuration);
+        attributeProcess = AttributeMappingProcess.getAttributeMappingConfig(configuration);
+
     }
 
     @Override
     protected Event process() {
-        // lazy-init on first call
-        if (filtrationProcess == null) {
-            System.out.println("Lazy init of pipeline steps");
-            this.filtrationProcess    = FiltrationProcess.fromFilterId(FILTERING_ID);
-            this.anonymizationProcess = AnonymizationProcess.fromDataSourceId(SOURCE_ID);
-            this.attributeProcess     = AttributeMappingProcess.fromSettingId(ATTRIBUTE_ID);
-        }
 
         JsonNode json = WebClient.create()
                 .get()
-                .uri(SSE_URL)
+                .uri(sseUrl)
                 .accept(MediaType.TEXT_EVENT_STREAM)
                 .retrieve()
                 .bodyToFlux(JsonNode.class)
@@ -51,7 +43,7 @@ public class SourceA extends SimpleSource<Event> {
         }
 
         if (!filtrationProcess.shouldPass(json)) {
-            System.out.println("filtered out, pulling next…");
+            System.out.println("filtered out, pulling next =>>");
             return null;  // will cause SimpleSource to call process() again
         }
 
