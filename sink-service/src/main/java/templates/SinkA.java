@@ -50,7 +50,7 @@ public class SinkA extends Sink {
             ex.printStackTrace();
         }
 
-        // 4) (Optional) Print to console as before
+        // 4) Print to console as before
         System.out.println("Event Stored in DB");
     }
 

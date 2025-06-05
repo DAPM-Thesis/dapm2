@@ -5,72 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dapm2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/IngestionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/IngestionApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/controller/MiningResultController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/dto/MiningResultDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/entity/MiningResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/preProcessingElements/AnonymizationProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AnonymizationProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/preProcessingElements/AttributeSettingProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AttributeMappingProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/preProcessingElements/FiltrationProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/FiltrationProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/preProcessingElements/streamSources/SSEStreamSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/repository/MiningResultRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/service/IngestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/service/IngestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/service/MiningResultService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/templates/EventSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/templates/LanguageFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/templates/PetriNetSink.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/templates/SinkA.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/EventSourceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AnonymizationProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AnonymizationProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AttributeMappingProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AttributeMappingProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/FiltrationProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/FiltrationProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/templates/SourceA.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/templates/SourceA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/complex_pipeline.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/concrete_pipeline.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/config_schemas/orga_eventsource_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/config_schemas/orga_languagefilter_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/config_schemas/orga_petrinetsink_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/config_schemas/orga_simplesink_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/config_schemas/orga_simplesource_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/config_schemas/orgb_behaviouralpatternsconformance_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/config_schemas/orgb_dockersink_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/config_schemas/orgb_heuristicsminer_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/config_schemas/orgb_meanjoinsaver_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/config_schemas/orgb_simpleoperator_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/docker_pipeline.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/heuristics_miner_pipeline.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/simple_pipeline.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/sinks/outputs/petriNet.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/sinks/visualizers/PetriNetViewer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/SinkApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/SinkApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/controller/MiningResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/controller/MiningResultController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/dto/MiningResultDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/service/MiningResultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/service/MiningResultService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/utils/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/utils/AppConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/templates/EventSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/templates/LanguageFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/templates/PetriNetSink.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/templates/SinkA.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/templates/SinkA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/templates/SourceA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/complex_pipeline.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/concrete_pipeline.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/config_schemas/orga_eventsource_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/config_schemas/orga_languagefilter_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/config_schemas/orga_petrinetsink_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/config_schemas/orga_simplesink_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/config_schemas/orga_simplesource_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/config_schemas/orgb_behaviouralpatternsconformance_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/config_schemas/orgb_dockersink_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/config_schemas/orgb_heuristicsminer_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/config_schemas/orgb_meanjoinsaver_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/config_schemas/orgb_simpleoperator_config_schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/docker_pipeline.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/heuristics_miner_pipeline.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/simple_pipeline.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/sinks/outputs/petriNet.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/sinks/visualizers/PetriNetViewer.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,9 +65,10 @@
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.IngestionApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.SinkApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;implement/configuration&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/tamas/Desktop/Project/dapm2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -168,7 +110,10 @@
       <option name="presentableId" value="Default" />
       <updated>1748593571442</updated>
       <workItem from="1748593574358" duration="21270000" />
-      <workItem from="1748697152749" duration="9305000" />
+      <workItem from="1748697152749" duration="9685000" />
+      <workItem from="1748766278317" duration="16243000" />
+      <workItem from="1749097761593" duration="2333000" />
+      <workItem from="1749105524552" duration="6799000" />
     </task>
     <servers />
   </component>
