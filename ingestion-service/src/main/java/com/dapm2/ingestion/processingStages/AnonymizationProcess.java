@@ -2,9 +2,9 @@
 package com.dapm2.ingestion.processingStages;
 
 import com.dapm2.ingestion.config.SpringContext;
-import com.dapm2.ingestion.entity.AnonymizationRule;
+
 import com.dapm2.ingestion.mongo.AnonymizationMappingService;
-import com.dapm2.ingestion.service.AnonymizationRuleService;
+
 import com.dapm2.ingestion.utils.AppConstants;
 import com.dapm2.ingestion.utils.JsonNodeUtils;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -36,16 +36,6 @@ public class AnonymizationProcess {
         this.mappingService  = mappingService;
     }
 
-    public static AnonymizationProcess fromDataSourceId(String dataSourceId) {
-        AnonymizationRuleService svc = SpringContext.getBean(AnonymizationRuleService.class);
-        AnonymizationRule rule = svc.getRuleByDataSourceId(dataSourceId);
-        List<String> pseu = rule != null ? rule.getPseudonymization() : List.of();
-        List<String> sup  = rule != null ? rule.getSuppression()      : List.of();
-        String uniq      = rule != null ? rule.getUniqueField()       : null;
-
-        var mappingSvc = SpringContext.getBean(AnonymizationMappingService.class);
-        return new AnonymizationProcess(dataSourceId, pseu, sup, uniq, mappingSvc);
-    }
     @SuppressWarnings("unchecked")
     public static AnonymizationProcess getAnonymizationConfig(Configuration configuration) {
         // 1) Grab the top‐level Map<String,Object> that Jackson has already produced

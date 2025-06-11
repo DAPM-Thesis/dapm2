@@ -1,8 +1,6 @@
 package com.dapm2.ingestion.processingStages;
 
 import com.dapm2.ingestion.config.SpringContext;
-import com.dapm2.ingestion.entity.FilterConfig;
-import com.dapm2.ingestion.service.StreamConfigurationService;
 import com.dapm2.ingestion.utils.JsonNodeUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,26 +16,6 @@ public class FiltrationProcess {
         this.filters = filters;
     }
 
-    public static FiltrationProcess fromFilterId(Long id) {
-        StreamConfigurationService service =
-                SpringContext.getBean(StreamConfigurationService.class);
-        ObjectMapper mapper = SpringContext.getBean(ObjectMapper.class);
-
-        FilterConfig config = service.getFilterById(id);
-        if (config == null || config.getFilters() == null) {
-            throw new RuntimeException("No FilterConfig found with id: " + id);
-        }
-
-        try {
-            @SuppressWarnings("unchecked")
-            Map<String, Object> parsed =
-                    mapper.readValue(config.getFilters(), Map.class);
-//            System.out.println("Filtered Id");
-            return new FiltrationProcess(parsed);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to parse filters", e);
-        }
-    }
     @SuppressWarnings("unchecked")
     public static FiltrationProcess getFilterConfig(Configuration configuration) {
         // 1) Grab the top‐level map that Jackson already created

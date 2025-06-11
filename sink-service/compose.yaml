@@ -38,37 +38,21 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
+  postgresDB-Sink:
+    image: postgres
+    container_name: postgres-Sink
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_DB: dapm_sink
+      POSTGRES_USER: dapm_user
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
 
-#  postgresDB-A:
-#    image: postgres
-#    container_name: postgres-A
-#    restart: always
-#    shm_size: 128mb
-#    environment:
-#      POSTGRES_DB: dapm_ingestion
-#      POSTGRES_USER: dapm_user
-#      POSTGRES_PASSWORD: 123456
-#    ports:
-#      - "5432:5432"
-#
-#  adminer-A:
-#    image: adminer
-#    container_name: adminer-A
-#    restart: always
-#    ports:
-#      - "8085:8080"
-#  mongo-A:
-#    image: mongo:6
-#    container_name: mongo-A
-#    restart: always
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: dapm_user
-#      MONGO_INITDB_ROOT_PASSWORD: 123456
-#      MONGO_INITDB_DATABASE: dapm_mapping_table
-#    ports:
-#      - "27017:27017"
-#    volumes:
-#      - mongo-data:/data/db
-#
-#volumes:
-#  mongo-data:
+  adminer-dapm2:
+    image: adminer
+    container_name: adminer-dapm2
+    restart: always
+    ports:
+      - "8085:8080"

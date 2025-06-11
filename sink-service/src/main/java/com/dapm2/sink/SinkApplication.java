@@ -1,5 +1,6 @@
 package com.dapm2.sink;
 
+import templates.PetriNetSink;
 import templates.SinkA;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ public class SinkApplication {
         ConfigurableApplicationContext context = SpringApplication.run(SinkApplication.class, args);
         TemplateRepository templateRepository = context.getBean(TemplateRepository.class);
         templateRepository.storeTemplate("SimpleSink", SinkA.class);
+        templateRepository.storeTemplate("PetriNetSink", PetriNetSink.class);
 
     }
 }
