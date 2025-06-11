@@ -5,13 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/EventSourceConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/config/SinkUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/dto/MiningResultDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/entity/PetriSnapshot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/repository/PetriSnapshotRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/service/PetriNetSavingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sink-service/src/main/java/templates/PetriNetSink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sink-service/src/main/resources/sinks/outputs/petriNet.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sink-service/src/main/resources/sinks/visualizers/PetriNetViewer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/controller/AnonymizationRuleController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/controller/AttributeConfigurationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/controller/FilterConfigurationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/controller/IngestionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/dto/AnonymizationRuleDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/dto/AttributeSettingDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/dto/FilterConfigDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/entity/AnonymizationRule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/entity/AttributeSetting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/entity/FilterConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AnonymizationProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AnonymizationProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AttributeMappingProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AttributeMappingProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/FiltrationProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/FiltrationProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/templates/SourceA.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/templates/SourceA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/repository/AnonymizationRuleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/repository/AttributeSettingRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/repository/FilterConfigRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/service/AnonymizationRuleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/service/IngestionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/service/StreamConfigurationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/utils/StringListToJsonConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/utils/StringListToJsonConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/SinkApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/SinkApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/entity/MiningResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/entity/MiningResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/repository/MiningResultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/repository/MiningResultRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/service/MiningResultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/service/MiningResultService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/templates/SinkA.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/templates/SinkA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,15 +101,24 @@
     &quot;Spring Boot.IngestionApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.SinkApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;implement/configuration&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tamas/Desktop/Project/dapm2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tamas/Desktop/Project/Implementation/dapm2/sink-service/src/main/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reactor&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tamas\Desktop\Project\Implementation\dapm2\sink-service\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.SinkApplication">
     <configuration name="IngestionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ingestion-service" />
@@ -97,8 +138,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
       </set>
     </attachedChunks>
   </component>
@@ -113,11 +154,23 @@
       <workItem from="1748697152749" duration="9685000" />
       <workItem from="1748766278317" duration="16243000" />
       <workItem from="1749097761593" duration="2333000" />
-      <workItem from="1749105524552" duration="6799000" />
+      <workItem from="1749105524552" duration="8956000" />
+      <workItem from="1749140203188" duration="10499000" />
+      <workItem from="1749306347295" duration="3858000" />
+      <workItem from="1749314799510" duration="121000" />
+      <workItem from="1749469759823" duration="4996000" />
+      <workItem from="1749476238854" duration="32000" />
+      <workItem from="1749477410091" duration="11171000" />
+      <workItem from="1749585161657" duration="8027000" />
+      <workItem from="1749620561722" duration="14752000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

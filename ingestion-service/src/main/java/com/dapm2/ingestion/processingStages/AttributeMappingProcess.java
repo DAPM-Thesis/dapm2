@@ -1,8 +1,6 @@
 package com.dapm2.ingestion.processingStages;
 
 import com.dapm2.ingestion.config.SpringContext;
-import com.dapm2.ingestion.entity.AttributeSetting;
-import com.dapm2.ingestion.service.StreamConfigurationService;
 import com.dapm2.ingestion.utils.JsonNodeUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -35,19 +33,7 @@ public class AttributeMappingProcess {
     /**
      * Fetch the three core JSON‐paths from the DB and build a processor.
      */
-    public static AttributeMappingProcess fromSettingId(Long id) {
-        StreamConfigurationService svc =
-                SpringContext.getBean(StreamConfigurationService.class);
-        AttributeSetting setting = svc.getAttributeSettingById(id);
-        if (setting == null) {
-            throw new IllegalStateException("No AttributeSetting for id " + id);
-        }
-        return new AttributeMappingProcess(
-                setting.getCaseId(),
-                setting.getActivity(),
-                setting.getTimeStamp()
-        );
-    }
+
     @SuppressWarnings("unchecked")
     public static AttributeMappingProcess getAttributeMappingConfig(Configuration configuration) {
         // 1) Grab the top‐level Map<String,Object> that Jackson has already produced

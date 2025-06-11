@@ -37,26 +37,6 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-ingestion:9012,PLAINTEXT_HOST://localhost:29012
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-
-
-  postgresDB-A:
-    image: postgres
-    container_name: postgres-A
-    restart: always
-    shm_size: 128mb
-    environment:
-      POSTGRES_DB: dapm_ingestion
-      POSTGRES_USER: dapm_user
-      POSTGRES_PASSWORD: 123456
-    ports:
-      - "5432:5432"
-
-  adminer-A:
-    image: adminer
-    container_name: adminer-A
-    restart: always
-    ports:
-      - "8085:8080"
   mongo-A:
     image: mongo:6
     container_name: mongo-A
