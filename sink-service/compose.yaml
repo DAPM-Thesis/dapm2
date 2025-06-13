@@ -6,7 +6,7 @@ networks:
 
 services:
   zookeeper-sink:
-    image: confluentinc/cp-zookeeper:latest
+    image: confluentinc/cp-zookeeper:7.4.4
     container_name: zookeeper-sink
     restart: always
     networks:
@@ -25,7 +25,7 @@ services:
       - zookeeper-sink
     networks:
       - kafka-cluster
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka:7.4.4
     restart: always
     ports:
       - "9062:9062"
@@ -38,21 +38,22 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-  postgresDB-Sink:
-    image: postgres
-    container_name: postgres-Sink
-    restart: always
-    shm_size: 128mb
-    environment:
-      POSTGRES_DB: dapm_sink
-      POSTGRES_USER: dapm_user
-      POSTGRES_PASSWORD: 123456
-    ports:
-      - "5432:5432"
 
-  adminer-dapm2:
-    image: adminer
-    container_name: adminer-dapm2
+  influxdb:
+    image: influxdb:2.7.12
+    container_name: influxdb
     restart: always
     ports:
-      - "8085:8080"
+      - "5086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=dapm_user
+      - DOCKER_INFLUXDB_INIT_PASSWORD=12345678
+      - DOCKER_INFLUXDB_INIT_ORG=dapm
+      - DOCKER_INFLUXDB_INIT_BUCKET=dapm_bucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=dapm_token
+    volumes:
+      - influxdb-storage:/var/lib/influxdb2
+
+volumes:
+  influxdb-storage:
