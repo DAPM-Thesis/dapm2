@@ -6,17 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/utils/StringListToJsonConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/config/SinkUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/controller/MiningResultController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/entity/MiningResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/entity/PetriSnapshot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/repository/MiningResultRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/repository/PetriSnapshotRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/service/MiningResultService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/service/PetriNetSavingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/utils/StringListToJsonConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/templates/PetriNetSink.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +63,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.IngestionApplication.executor": "Run",
     "Spring Boot.SinkApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "implement/grafana",
     "last_opened_file_path": "C:/Users/tamas/Desktop/Project/Implementation/dapm2/sink-service/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

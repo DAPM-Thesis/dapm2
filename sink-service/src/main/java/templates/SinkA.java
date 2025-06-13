@@ -79,7 +79,6 @@ public class SinkA extends Sink {
                             .time(Instant.ofEpochMilli(timestamp), WritePrecision.MS);
 
                     writeApi.writePoint(point);
-                    System.out.println("Stored in InfluxDB");
                 }
             }
         } catch (Exception ex) {
