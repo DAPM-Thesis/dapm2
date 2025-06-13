@@ -6,7 +6,7 @@ networks:
 
 services:
   zookeeper-ingestion:
-    image: confluentinc/cp-zookeeper:latest
+    image: confluentinc/cp-zookeeper:7.4.4
     container_name: zookeeper-ingestion
     restart: always
     networks:
@@ -25,7 +25,7 @@ services:
       - zookeeper-ingestion
     networks:
       - kafka-cluster
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka:7.4.4
     restart: always
     ports:
       - "9012:9012"

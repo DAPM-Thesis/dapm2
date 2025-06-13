@@ -1,10 +1,13 @@
 package templates;
 
-import com.dapm2.sink.entity.MiningResult;
-import com.dapm2.sink.repository.MiningResultRepository;
-
+import com.dapm2.sink.influx.config.InfluxDBConfig;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.influxdb.client.InfluxDBClient;
+import com.influxdb.client.WriteApi;
+import com.influxdb.client.domain.WritePrecision;
+import com.influxdb.client.write.Point;
 import communication.message.Message;
 import communication.message.impl.event.Attribute;
 import communication.message.impl.event.Event;
@@ -14,96 +17,89 @@ import pipeline.processingelement.Configuration;
 import pipeline.processingelement.Sink;
 import utils.Pair;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
-import static com.dapm2.sink.utils.AppConstants.*;
 @Component
 public class SinkA extends Sink {
-    @Autowired
-    private MiningResultRepository repository;
-
+    private final InfluxDBClient influxDBClient;
+    private static final ObjectMapper objectMapper = new ObjectMapper();
     public SinkA(Configuration configuration) {
         super(configuration);
+        influxDBClient = InfluxDBConfig.createClient();
     }
     @Override
     public void observe(Pair<Message, Integer> messageAndPortNumber) {
         System.out.println("SinkA!!");
         Event e = (Event) messageAndPortNumber.first();
-        System.out.println(this + " received: " + "  caseID:   " + e.getCaseID()+",  activity:   "
-                + e.getActivity() +",  timestamp:" + e.getTimestamp()+ " on port " + messageAndPortNumber.second());
-        // 2) Build whatever “payload” string you want to store in DB
-
-        MiningResult miningResult = setResultAttributes(e);
-        repository.save(miningResult);
-        // 4) Print to console as before
-        System.out.println("Event Stored in DB");
-    }
-
-    private MiningResult setResultAttributes(Event e) {
-        MiningResult miningResult = new MiningResult();
-        miningResult.setCaseid(e.getCaseID());
-        miningResult.setActivity(e.getActivity());
-        miningResult.setTimestamp(Instant.parse(e.getTimestamp()));
-
-        Attribute<?> miningAttr = e.getAttributes().stream()
-                .filter(a -> "miningResult".equals(a.getName()))
-                .findFirst()
-                .orElse(null);
-        if (miningAttr != null && miningAttr.getValue() instanceof Map) {
-            Map<String, Attribute<?>> resultMap = (Map<String, Attribute<?>>) miningAttr.getValue();
-
-            // Get value of specific keys
-            Attribute<?> fromAttr = resultMap.get("hm_from");
-            Attribute<?> toAttr = resultMap.get("hm_to");
-            Attribute<?> freqAttr = resultMap.get("frequency");
-            Attribute<?> dependencyAttr = resultMap.get("dependency");
-
-            if (fromAttr != null) {
-                miningResult.setFromActivity(fromAttr.getValue().toString());
-                System.out.println("hm_from → " + fromAttr.getValue().toString());
-            }
-
-            if (toAttr != null) {
-                miningResult.setToActivity(toAttr.getValue().toString());
-                System.out.println("toAttr → " + toAttr.getValue().toString());
-            }
-            if (freqAttr != null) {
-                miningResult.setFrequency(Long.parseLong(freqAttr.getValue().toString()));
-                System.out.println("frequency → " + freqAttr);
-            }
-            if (dependencyAttr != null) {
-                miningResult.setDependency(Double.parseDouble(dependencyAttr.getValue().toString()));
-                System.out.println("dependencyAttr → " + dependencyAttr);
-            }
-        }
-        Map<String, Object> attributeMap = new LinkedHashMap<>();
-
+//        System.out.println(this + " received:   caseID:   " + e.getCaseID() + ",  activity:   "
+//                + e.getActivity() + ",  timestamp:" + e.getTimestamp() + " on port " + messageAndPortNumber.second());
+        String miningMetricsPayload = null;
         for (Attribute<?> attr : e.getAttributes()) {
-            if (!"miningresult".equalsIgnoreCase(attr.getName())) {
-                attributeMap.put(attr.getName(), attr.getValue());
+            if ("mining_metrics".equals(attr.getName())) {
+                miningMetricsPayload = (String) attr.getValue();
+                System.out.println("Payload in sink: " + miningMetricsPayload);
+                break;
             }
         }
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            String attributesJson = objectMapper.writeValueAsString(attributeMap);
-            miningResult.setAttributes(attributesJson);
-        } catch (JsonProcessingException ex) {
-            ex.printStackTrace(); // or handle exception properly
+        if (miningMetricsPayload == null) {
+            System.out.println("No mining_metrics attribute found.");
+            return;
         }
-        return miningResult;
-    }
+        // 2. Serialize ALL attributes as JSON (for full info backup)
+        String allAttributesJson = "";
+        try {
+            allAttributesJson = objectMapper.writeValueAsString(e.getAttributes());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            allAttributesJson = "{}";
+        }
 
+        // 3. Parse mining_metrics and write to InfluxDB
+        try {
+            List<Map<String, Object>> arcList = objectMapper.readValue(
+                    miningMetricsPayload, new TypeReference<List<Map<String, Object>>>() {}
+            );
+            try (WriteApi writeApi = influxDBClient.getWriteApi()) {
+                for (Map<String, Object> arc : arcList) {
+                    String arcFrom = (String) arc.get("arc_from");
+                    String arcTo = (String) arc.get("arc_to");
+                    long frequency = ((Number) arc.get("frequency")).longValue();
+                    double dependency = ((Number) arc.get("dependency")).doubleValue();
+                    long timestamp = ((Number) arc.get("timestamp")).longValue();
+                    String caseId = e.getCaseID();
+
+                    Point point = Point.measurement("heuristic_miner_arcs")
+                            .addTag("arc_from", arcFrom)
+                            .addTag("arc_to", arcTo)
+                            .addTag("case_id", caseId)
+                            .addField("frequency", frequency)
+                            .addField("dependency", dependency)
+                            .addField("all_attributes", allAttributesJson)
+                            .time(Instant.ofEpochMilli(timestamp), WritePrecision.MS);
+
+                    writeApi.writePoint(point);
+                    System.out.println("Stored in InfluxDB");
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.err.println("Error parsing payload or writing to InfluxDB.");
+        }
+    }
+    private String getAttributeValue(Set<Attribute<?>> attrs, String name) {
+        return attrs.stream()
+                .filter(a -> name.equals(a.getName()))
+                .map(a -> a.getValue() == null ? "" : a.getValue().toString())
+                .findFirst().orElse("");
+    }
     @Override
     protected Map<Class<? extends Message>, Integer> setConsumedInputs() {
         Map<Class<? extends Message>, Integer> map = new HashMap<>();
         map.put(Event.class, 1);
         return map;
+    }
+    public void close() {
+        influxDBClient.close();
     }
 }
