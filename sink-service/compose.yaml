@@ -42,6 +42,8 @@ services:
   influxdb:
     image: influxdb:2.7.12
     container_name: influxdb
+    networks:
+      - kafka-cluster
     restart: always
     ports:
       - "5086:8086"
@@ -50,10 +52,26 @@ services:
       - DOCKER_INFLUXDB_INIT_USERNAME=dapm_user
       - DOCKER_INFLUXDB_INIT_PASSWORD=12345678
       - DOCKER_INFLUXDB_INIT_ORG=dapm
-      - DOCKER_INFLUXDB_INIT_BUCKET=dapm_bucket
+      - DOCKER_INFLUXDB_INIT_BUCKET=dapm_bucket_2
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=dapm_token
     volumes:
       - influxdb-storage:/var/lib/influxdb2
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - influxdb
+    networks:
+      - kafka-cluster    # Use your actual docker network
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ADMIN_USER=admin
+    volumes:
+      - grafana-storage:/var/lib/grafana
 
 volumes:
   influxdb-storage:
+  grafana-storage:

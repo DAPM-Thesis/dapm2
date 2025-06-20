@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/influx/config/InfluxProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/utils/StringListToJsonConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/config/SinkUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/controller/MiningResultController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/entity/MiningResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/entity/PetriSnapshot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/repository/MiningResultRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/repository/PetriSnapshotRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/service/MiningResultService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/service/PetriNetSavingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/utils/StringListToJsonConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/templates/PetriNetSink.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AttributeMappingProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/AttributeMappingProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/FiltrationProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/com/dapm2/ingestion/processingStages/FiltrationProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/influx/config/InfluxDBConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/influx/config/InfluxDBConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/templates/SinkA.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/templates/SinkA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,30 +56,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "Database connection parameters found",
-    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.IngestionApplication.executor": "Run",
-    "Spring Boot.SinkApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/tamas/Desktop/Project/Implementation/dapm2/sink-service/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reactor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
+    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.IngestionApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.SinkApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;implement/grafana&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tamas/Desktop/Project/Implementation/dapm2/sink-service/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reactor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -141,6 +137,11 @@
       <workItem from="1749822793832" duration="7681000" />
       <workItem from="1749833746239" duration="7985000" />
       <workItem from="1749844758457" duration="2387000" />
+      <workItem from="1750019630388" duration="8291000" />
+      <workItem from="1750051907370" duration="845000" />
+      <workItem from="1750053411688" duration="6777000" />
+      <workItem from="1750092440751" duration="6027000" />
+      <workItem from="1750324073703" duration="27785000" />
     </task>
     <servers />
   </component>
