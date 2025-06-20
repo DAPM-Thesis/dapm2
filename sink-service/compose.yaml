@@ -1,3 +1,4 @@
+version: "3.8"
 networks:
   kafka-cluster:
     name: kafka-cluster
@@ -32,7 +33,7 @@ services:
       - "29062:29062"
     environment:
       KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181,zookeeper-2:2181,zookeeper-3:2181,zookeeper-sink:2181,zookeeper-ingestion:2181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper-2:2181,zookeeper-3:2181,zookeeper-sink:2181,zookeeper-ingestion:2181
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-sink:9062,PLAINTEXT_HOST://localhost:29062
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
@@ -52,7 +53,7 @@ services:
       - DOCKER_INFLUXDB_INIT_USERNAME=dapm_user
       - DOCKER_INFLUXDB_INIT_PASSWORD=12345678
       - DOCKER_INFLUXDB_INIT_ORG=dapm
-      - DOCKER_INFLUXDB_INIT_BUCKET=dapm_bucket_2
+      - DOCKER_INFLUXDB_INIT_BUCKET=dapm_bucket
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=dapm_token
     volumes:
       - influxdb-storage:/var/lib/influxdb2

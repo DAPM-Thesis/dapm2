@@ -12,5 +12,7 @@
   <modules>
     <module>ingestion-service</module>
     <module>sink-service</module>
+    <module>operator-service</module>
+    <module>client-service</module>
   </modules>
 </project>
