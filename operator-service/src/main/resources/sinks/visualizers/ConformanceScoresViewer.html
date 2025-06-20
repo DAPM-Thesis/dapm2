@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+    <title>Conformance Scores Pie Chart Visualizer</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+<div id="chartContainer" style="display: flex; flex-direction: column; align-items: center;">
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+    <div id="barValues" style="text-align: center; margin-top: 1em; font-family: sans-serif;"></div>
+</div>
+<script>
+    const xValues = ["English", "Russian"];
+    const barColors = [
+        "#001da5",
+        "#bd0000",
+    ];
+
+    const barChart = new Chart(document.getElementById("myChart"), {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: [0, 0]
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: "English vs Russian Average Conformance Scores"
+            },
+            legend: {display: false},
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        precision: 0
+                    }
+                }]
+            }
+        }
+    });
+
+    setInterval(async function () {
+        try {
+            const response = await fetch("../outputs/scores.txt?" + new Date().getTime());
+            if (!response.ok) return;
+            const text = await response.text();
+            const values = text.split('\n')
+                .filter(line => line !== '')
+                .map(Number);
+            barChart.data.datasets[0].data = values;
+            barChart.update();
+
+            const barValuesDiv = document.getElementById('barValues');
+            barValuesDiv.innerHTML = `
+            <span style="color:#001da5;margin-right:2em;">
+                English: <strong>${values[0]?.toFixed(2) ?? '0.00'}</strong>
+            </span>
+            <span style="color:#bd0000;">
+                Russian: <strong>${values[1]?.toFixed(2) ?? '0.00'}</strong>
+            </span>
+        `;
+        } catch (err) {
+            console.error("Update error in bar chart:", err);
+        }
+    }, 2000);
+</script>
+</body>
+</html>

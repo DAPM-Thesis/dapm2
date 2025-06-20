@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.dapm.org/config/orgb_dockersink_config_schema.json",
+  "title": "orgB DockerSink Config",
+  "type": "object",
+  "properties": {
+    "imageID": { "type": "string" }
+  },
+  "required": ["imageID"],
+  "additionalProperties": false
+}
