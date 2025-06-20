@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bash-start-all.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/start-all.ps1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-service/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/client-service/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ingestion-service/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/operator-service/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/operator-service/compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sink-service/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -66,12 +68,13 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHELLCHECK.PATH": "I do mind",
     "Spring Boot.ClientServiceApplication.executor": "Run",
     "Spring Boot.IngestionApplication.executor": "Run",
     "Spring Boot.OperatorServiceApplication (1).executor": "Run",
     "Spring Boot.OperatorServiceApplication.executor": "Run",
     "Spring Boot.SinkApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "implement/vm",
     "last_opened_file_path": "C:/Users/tamas/Desktop/Project/Implementation/dapm2/sink-service/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -181,12 +184,15 @@
       <workItem from="1750092440751" duration="6027000" />
       <workItem from="1750324073703" duration="27785000" />
       <workItem from="1750436515075" duration="3124000" />
-      <workItem from="1750440627209" duration="2368000" />
+      <workItem from="1750440627209" duration="11899000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ps1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
