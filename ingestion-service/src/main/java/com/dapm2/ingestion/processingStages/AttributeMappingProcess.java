@@ -96,7 +96,7 @@ public class AttributeMappingProcess {
         removeByPath(copy, caseIdField);
         removeByPath(copy, activityField);
         removeByPath(copy, timestampField);
-        // 3) convert everything left into Attributes
+//        // 3) convert everything left into Attributes
         Set<Attribute<?>> attrs = buildAttributes(copy);
         return new Event(caseId, activity, timestamp, attrs);
     }

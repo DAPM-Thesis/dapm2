@@ -46,34 +46,46 @@ public class FiltrationProcess {
      */
     public boolean shouldPass(JsonNode eventJson) {
         for (Map.Entry<String, Object> entry : filters.entrySet()) {
-            String path          = entry.getKey();
+            String path = entry.getKey();
             Object expectedValue = entry.getValue();
-
-            // 1) null‐safe fetch
             JsonNode actualNode = JsonNodeUtils.getNodeByPath(eventJson, path);
+
             if (actualNode.isMissingNode() || actualNode.isNull()) {
                 return false;
             }
 
-            // 2) boolean filter
+            // 1. Boolean filter (no change)
             if (expectedValue instanceof Boolean) {
                 boolean actualBool = actualNode.asBoolean(false);
                 if (actualBool != (Boolean) expectedValue) {
-//                    System.out.println("Filtered False1");
                     return false;
                 }
                 continue;
             }
 
-            // 3) string or other primitive – compare text
+            // 2. List filter (support ["ruwiki", "enwiki"])
+            if (expectedValue instanceof Iterable) {
+                String actualText = actualNode.asText(null);
+                boolean matched = false;
+                for (Object value : (Iterable<?>) expectedValue) {
+                    if (actualText != null && actualText.equals(value.toString())) {
+                        matched = true;
+                        break;
+                    }
+                }
+                if (!matched) {
+                    return false;
+                }
+                continue;
+            }
+
+            // 3. String/primitive filter (old behavior)
             String actualText = actualNode.asText(null);
-            if (actualText == null
-                    || !actualText.equals(expectedValue.toString())) {
-//                System.out.println("Filtered False2");
+            if (actualText == null || !actualText.equals(expectedValue.toString())) {
                 return false;
             }
         }
-//        System.out.println("Filtered True");
         return true;
     }
+
 }

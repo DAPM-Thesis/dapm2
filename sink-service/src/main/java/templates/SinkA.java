@@ -1,7 +1,6 @@
 package templates;
 
 import com.dapm2.sink.influx.config.InfluxDBConfig;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.influxdb.client.InfluxDBClient;
@@ -11,7 +10,6 @@ import com.influxdb.client.write.Point;
 import communication.message.Message;
 import communication.message.impl.event.Attribute;
 import communication.message.impl.event.Event;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pipeline.processingelement.Configuration;
 import pipeline.processingelement.Sink;
@@ -38,7 +36,7 @@ public class SinkA extends Sink {
         for (Attribute<?> attr : e.getAttributes()) {
             if ("mining_metrics".equals(attr.getName())) {
                 miningMetricsPayload = (String) attr.getValue();
-                System.out.println("Payload in sink: " + miningMetricsPayload);
+                //System.out.println("Payload in sink: " + miningMetricsPayload);
                 break;
             }
         }
@@ -68,16 +66,19 @@ public class SinkA extends Sink {
                     double dependency = ((Number) arc.get("dependency")).doubleValue();
                     long timestamp = ((Number) arc.get("timestamp")).longValue();
                     String caseId = e.getCaseID();
+                    String activity = e.getActivity();
 
                     Point point = Point.measurement("heuristic_miner_arcs")
                             .addTag("arc_from", arcFrom)
                             .addTag("arc_to", arcTo)
-                            .addTag("case_id", caseId)
+                            .addTag("wiki", caseId)
+                            .addTag("type", activity)
                             .addField("frequency", frequency)
                             .addField("dependency", dependency)
                             .addField("all_attributes", allAttributesJson)
                             .time(Instant.ofEpochMilli(timestamp), WritePrecision.MS);
 
+                    System.out.println("Writing to InfluxDB!!");
                     writeApi.writePoint(point);
                 }
             }

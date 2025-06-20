@@ -52,13 +52,14 @@ services:
       - DOCKER_INFLUXDB_INIT_USERNAME=dapm_user
       - DOCKER_INFLUXDB_INIT_PASSWORD=12345678
       - DOCKER_INFLUXDB_INIT_ORG=dapm
-      - DOCKER_INFLUXDB_INIT_BUCKET=dapm_bucket
+      - DOCKER_INFLUXDB_INIT_BUCKET=dapm_bucket_2
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=dapm_token
     volumes:
       - influxdb-storage:/var/lib/influxdb2
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
+    restart: always
     ports:
       - "3000:3000"
     depends_on:
