@@ -14,8 +14,9 @@ import java.util.*;
 
 public class EventOperatorB extends SimpleOperator<Event> {
 
-private final SimpleHeuristicMiner minerEnwiki = new SimpleHeuristicMiner();
+    private final SimpleHeuristicMiner minerEnwiki = new SimpleHeuristicMiner();
     private final SimpleHeuristicMiner minerRuwiki = new SimpleHeuristicMiner();
+    private final SimpleHeuristicMiner minerCommonswiki = new SimpleHeuristicMiner();
     public EventOperatorB(Configuration configuration) {
         super(configuration);
     }
@@ -36,10 +37,12 @@ private final SimpleHeuristicMiner minerEnwiki = new SimpleHeuristicMiner();
         if (e.getCaseID().equals("enwiki")){
             minerEnwiki.addEvent(e);
             metrics = minerEnwiki.getMetrics();
-        }
-        else {
+        } else if (e.getCaseID().equals("ruwiki")) {
             minerRuwiki.addEvent(e);
             metrics = minerRuwiki.getMetrics();
+        } else {
+            minerCommonswiki.addEvent(e);
+            metrics = minerCommonswiki.getMetrics();
         }
         long timestamp = Instant.parse(e.getTimestamp()).toEpochMilli();
         // 3) Print + attach

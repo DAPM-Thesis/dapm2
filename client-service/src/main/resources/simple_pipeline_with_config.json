@@ -6,7 +6,7 @@
           "url": "https://stream.wikimedia.org/v2/stream/recentchange"
         },
         "filters": {
-          "wiki": ["ruwiki", "enwiki"]
+          "wiki": ["commonswiki", "enwiki", "ruwiki"]
         },
         "attributeMapping": {
           "caseId": "wiki",
@@ -33,7 +33,7 @@
           "url": "https://stream.wikimedia.org/v2/stream/recentchange"
         },
         "filters": {
-          "wiki": ["ruwiki", "enwiki"]
+          "wiki": ["commonswiki", "enwiki", "ruwiki"]
         },
         "attributeMapping": {
           "caseId": "wiki",
