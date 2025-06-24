@@ -48,7 +48,7 @@
           "url": "https://stream.wikimedia.org/v2/stream/recentchange"
         },
         "filters": {
-          "wiki": ["dewiki"]
+          "wiki": ["ukwiki"]
         },
         "attributeMapping": {
           "caseId": "wiki",
@@ -150,7 +150,7 @@
           "url": "https://stream.wikimedia.org/v2/stream/recentchange"
         },
         "filters": {
-          "wiki": ["dewiki"]
+          "wiki": ["ukwiki"]
         },
         "attributeMapping": {
           "caseId": "wiki",

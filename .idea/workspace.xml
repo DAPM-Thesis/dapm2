@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client-service/src/main/resources/multiple_PE_pipeline_with_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/example/client/ClientServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-service/src/main/java/com/example/client/ClientServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operator-service/src/main/java/templates/EventOperatorB.java" beforeDir="false" afterPath="$PROJECT_DIR$/operator-service/src/main/java/templates/EventOperatorB.java" afterDir="false" />
-    </list>
+    <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,7 +161,7 @@
       <workItem from="1750440627209" duration="12736000" />
       <workItem from="1750499287988" duration="2657000" />
       <workItem from="1750664045748" duration="1650000" />
-      <workItem from="1750751015692" duration="5450000" />
+      <workItem from="1750751015692" duration="5857000" />
     </task>
     <servers />
   </component>
