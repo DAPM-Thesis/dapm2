@@ -14,9 +14,7 @@ import java.util.*;
 
 public class EventOperatorB extends SimpleOperator<Event> {
 
-    private final SimpleHeuristicMiner minerEnwiki = new SimpleHeuristicMiner();
-    private final SimpleHeuristicMiner minerRuwiki = new SimpleHeuristicMiner();
-    private final SimpleHeuristicMiner minerCommonswiki = new SimpleHeuristicMiner();
+    private final SimpleHeuristicMiner miner = new SimpleHeuristicMiner();
     public EventOperatorB(Configuration configuration) {
         super(configuration);
     }
@@ -34,16 +32,8 @@ public class EventOperatorB extends SimpleOperator<Event> {
         Event e = (Event) message;
         // 1) Update the in‐process
         List<DirectFollow> metrics = new ArrayList<>();
-        if (e.getCaseID().equals("enwiki")){
-            minerEnwiki.addEvent(e);
-            metrics = minerEnwiki.getMetrics();
-        } else if (e.getCaseID().equals("ruwiki")) {
-            minerRuwiki.addEvent(e);
-            metrics = minerRuwiki.getMetrics();
-        } else {
-            minerCommonswiki.addEvent(e);
-            metrics = minerCommonswiki.getMetrics();
-        }
+        miner.addEvent(e);
+        metrics = miner.getMetrics();
         long timestamp = Instant.parse(e.getTimestamp()).toEpochMilli();
         // 3) Print + attach
         System.out.println("Heuristic‐miner calculating metrics!!");

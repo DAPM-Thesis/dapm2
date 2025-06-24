@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client-service/src/main/resources/multiple_PE_pipeline_with_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/example/client/ClientServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-service/src/main/java/com/example/client/ClientServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/resources/simple_pipeline_with_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/client-service/src/main/resources/simple_pipeline_with_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/operator-service/src/main/java/templates/EventOperatorB.java" beforeDir="false" afterPath="$PROJECT_DIR$/operator-service/src/main/java/templates/EventOperatorB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +71,7 @@
     "Spring Boot.OperatorServiceApplication.executor": "Run",
     "Spring Boot.SinkApplication.executor": "Run",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/tamas/Desktop/Project/Implementation/dapm2/sink-service/src/main/resources",
+    "last_opened_file_path": "C:/Users/tamas/Desktop/Project/Implementation/dapm2/client-service/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,10 +90,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tamas\Desktop\Project\Implementation\dapm2\client-service\src\main\resources" />
       <recent name="C:\Users\tamas\Desktop\Project\Implementation\dapm2\sink-service\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.OperatorServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ClientServiceApplication">
     <configuration name="ClientServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="client-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.client.ClientServiceApplication" />
@@ -164,6 +165,8 @@
       <workItem from="1750436515075" duration="3124000" />
       <workItem from="1750440627209" duration="12736000" />
       <workItem from="1750499287988" duration="2657000" />
+      <workItem from="1750664045748" duration="1650000" />
+      <workItem from="1750751015692" duration="5450000" />
     </task>
     <servers />
   </component>

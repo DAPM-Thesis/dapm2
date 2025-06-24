@@ -23,12 +23,14 @@ public class ClientServiceApplication {
         String pipelineID = "orgC_pipeline";
         String contents;
         try {
-            contents = Files.readString(Paths.get("src/main/resources/simple_pipeline_with_config.json"));
+            contents = Files.readString(Paths.get("src/main/resources/multiple_PE_pipeline_with_config.json"));
+            //contents = Files.readString(Paths.get("client-service/src/main/resources/multiple_PE_pipeline_with_config.json"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         URI configURI = Paths.get("src/main/resources/config_schemas").toUri();
+        //URI configURI = Paths.get("client-service/src/main/resources/config_schemas").toUri();
         ValidatedPipeline validatedPipeline = new ValidatedPipeline(contents, configURI);
 
         PipelineBuilder pipelineBuilder = context.getBean(PipelineBuilder.class);
