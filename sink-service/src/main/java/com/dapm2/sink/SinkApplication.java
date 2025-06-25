@@ -16,7 +16,6 @@ public class SinkApplication {
         ConfigurableApplicationContext context = SpringApplication.run(SinkApplication.class, args);
         TemplateRepository templateRepository = context.getBean(TemplateRepository.class);
         templateRepository.storeTemplate("SimpleSink", SinkA.class);
-        //templateRepository.storeTemplate("PetriNetSink", PetriNetSink.class);
 
     }
 }

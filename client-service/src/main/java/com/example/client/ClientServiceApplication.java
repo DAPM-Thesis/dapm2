@@ -24,7 +24,7 @@ public class ClientServiceApplication {
         String contents;
         try {
             contents = Files.readString(Paths.get("src/main/resources/multiple_PE_pipeline_with_config.json"));
-            //contents = Files.readString(Paths.get("client-service/src/main/resources/multiple_PE_pipeline_with_config.json"));
+           //contents = Files.readString(Paths.get("client-service/src/main/resources/multiple_PE_pipeline_with_config.json"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -1,7 +1,7 @@
 package templates;
 
-import com.example.operator.service.SimpleHeuristicMiner;
-import com.example.operator.service.SimpleHeuristicMiner.DirectFollow;
+import com.example.operator.miningAlgorithm.SimpleHeuristicMiner;
+import com.example.operator.miningAlgorithm.SimpleHeuristicMiner.DirectFollow;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import communication.message.Message;

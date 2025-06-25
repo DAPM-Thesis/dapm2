@@ -1,4 +1,4 @@
-package com.example.operator.service;
+package com.example.operator.miningAlgorithm;
 
 import communication.message.impl.event.Event;
 
