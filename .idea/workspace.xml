@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bash-stop-all-docker.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monitor.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restart-all.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run-all.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stop-all.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash-start-all.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash-start-all-docker.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/example/client/ClientServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-service/src/main/java/com/example/client/ClientServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service/src/main/resources/heuristic-miner_pipeline_with_config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingestion-service/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operator-service/src/main/java/com/example/operator/service/SimpleHeuristicMiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/operator-service/src/main/java/com/example/operator/miningAlgorithm/SimpleHeuristicMiner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operator-service/src/main/java/templates/EventOperatorB.java" beforeDir="false" afterPath="$PROJECT_DIR$/operator-service/src/main/java/templates/EventOperatorB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/SinkApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/SinkApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/influx/config/InfluxDBConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/influx/config/InfluxDBConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/templates/SinkA.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/templates/SinkA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +71,7 @@
     "Spring Boot.OperatorServiceApplication.executor": "Run",
     "Spring Boot.SinkApplication.executor": "Run",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/tamas/Desktop/Project/Implementation/dapm2",
+    "last_opened_file_path": "C:/Users/tamas/Desktop/Project/Implementation/dapm2/client-service/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -100,9 +90,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tamas\Desktop\Project\Implementation\dapm2\client-service\src\main\resources" />
       <recent name="C:\Users\tamas\Desktop\Project\Implementation\dapm2" />
       <recent name="C:\Users\tamas\Desktop\Project\Implementation\dapm2\client-service\src\main\resources\config_schemas" />
-      <recent name="C:\Users\tamas\Desktop\Project\Implementation\dapm2\client-service\src\main\resources" />
       <recent name="C:\Users\tamas\Desktop\Project\Implementation\dapm2\sink-service\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -183,7 +173,7 @@
       <workItem from="1750664045748" duration="1650000" />
       <workItem from="1750751015692" duration="11652000" />
       <workItem from="1750851847010" duration="184000" />
-      <workItem from="1750852314468" duration="15865000" />
+      <workItem from="1750852314468" duration="19997000" />
     </task>
     <servers />
   </component>

@@ -7,17 +7,11 @@ public class InfluxDBConfig {
     public static final String INFLUX_URL = "http://localhost:5086";
     public static final String INFLUX_TOKEN = "dapm_token";
     public static final String INFLUX_ORG = "dapm";
-    public static final String INFLUX_BUCKET = "dapm_bucket";
-    public static final String CONFORMANCE_BUCKET = "conformance_metrics";
+    public static final String INFLUX_BUCKET = "nasa_bucket";
 
     public static InfluxDBClient createClient() {
         return InfluxDBClientFactory.create(
                 INFLUX_URL, INFLUX_TOKEN.toCharArray(), INFLUX_ORG, INFLUX_BUCKET
-        );
-    }
-    public static InfluxDBClient createClientForConformance() {
-        return InfluxDBClientFactory.create(
-                INFLUX_URL, INFLUX_TOKEN.toCharArray(), INFLUX_ORG, CONFORMANCE_BUCKET
         );
     }
 }

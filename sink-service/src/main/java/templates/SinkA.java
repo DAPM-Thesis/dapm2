@@ -30,8 +30,6 @@ public class SinkA extends Sink {
     public void observe(Pair<Message, Integer> messageAndPortNumber) {
         System.out.println("SinkA!!");
         Event e = (Event) messageAndPortNumber.first();
-//        System.out.println(this + " received:   caseID:   " + e.getCaseID() + ",  activity:   "
-//                + e.getActivity() + ",  timestamp:" + e.getTimestamp() + " on port " + messageAndPortNumber.second());
         String miningMetricsPayload = null;
         for (Attribute<?> attr : e.getAttributes()) {
             if ("mining_metrics".equals(attr.getName())) {
