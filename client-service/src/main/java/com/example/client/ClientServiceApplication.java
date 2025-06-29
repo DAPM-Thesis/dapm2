@@ -23,7 +23,7 @@ public class ClientServiceApplication {
         String pipelineID = "orgC_pipeline";
         String contents;
         try {
-            contents = Files.readString(Paths.get("src/main/resources/multiple_PE_pipeline_with_config.json"));
+            contents = Files.readString(Paths.get("src/main/resources/demo-sse_multiple_PE_pipeline_with_config.json"));
             //contents = Files.readString(Paths.get("client-service/src/main/resources/demo-sse_multiple_PE_pipeline_with_config.json"));
         } catch (IOException e) {
             throw new RuntimeException(e);
