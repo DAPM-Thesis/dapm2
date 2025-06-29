@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client-service/src/main/resources/demo-sse_multiple_PE_pipeline_with_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client-service/src/main/java/com/example/client/ClientServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-service/src/main/java/com/example/client/ClientServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/influx/config/InfluxDBConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sink-service/src/main/java/com/dapm2/sink/influx/config/InfluxDBConfig.java" afterDir="false" />
@@ -53,38 +54,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "Database connection parameters found",
-    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHELLCHECK.PATH": "I do mind",
-    "Spring Boot.ClientServiceApplication.executor": "Run",
-    "Spring Boot.IngestionApplication.executor": "Run",
-    "Spring Boot.OperatorServiceApplication (1).executor": "Run",
-    "Spring Boot.OperatorServiceApplication.executor": "Run",
-    "Spring Boot.SinkApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/tamas/Desktop/Project/Implementation/dapm2/client-service/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "reactor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
+    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;I do mind&quot;,
+    &quot;Spring Boot.ClientServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.IngestionApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.OperatorServiceApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.OperatorServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.SinkApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tamas/Desktop/Project/Implementation/dapm2/client-service/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reactor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -174,6 +175,9 @@
       <workItem from="1750751015692" duration="11652000" />
       <workItem from="1750851847010" duration="184000" />
       <workItem from="1750852314468" duration="19997000" />
+      <workItem from="1751008045249" duration="1411000" />
+      <workItem from="1751118919387" duration="35000" />
+      <workItem from="1751181985593" duration="15209000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,128 @@
+{
+  "processing elements":[
+    { "organizationID": "ingestion-service", "hostURL": "http://localhost:8081", "templateID": "SimpleSource", "inputs": [], "output": "Event", "instanceNumber": 1,
+      "configuration": {
+        "eventSource": {
+          "url": "http://localhost:8071/sse/events"
+        },
+        "filters": {
+          "dept": ["IT"]
+        },
+        "attributeMapping": {
+          "caseId": "dept",
+          "activity": "activity",
+          "timeStamp": "timestamp"
+        },
+        "anonymization": {
+          "dataSourceId": "student-activity",
+          "pseudonymization": ["name"],
+          "suppression": [],
+          "uniqueField":"studentId"
+        }
+      }
+    },
+    { "organizationID": "ingestion-service", "hostURL": "http://localhost:8081", "templateID": "SimpleSource", "inputs": [], "output": "Event", "instanceNumber": 1,
+      "configuration": {
+        "eventSource": {
+          "url": "http://localhost:8071/sse/events"
+        },
+        "filters": {
+          "dept": ["Biochemistry"]
+        },
+        "attributeMapping": {
+          "caseId": "dept",
+          "activity": "activity",
+          "timeStamp": "timestamp"
+        },
+        "anonymization": {
+          "dataSourceId": "student-activity",
+          "pseudonymization": ["name"],
+          "suppression": [],
+          "uniqueField":"studentId"
+        }
+      }
+    },
+    { "organizationID": "orgB", "hostURL": "http://localhost:8083", "templateID": "SimpleOperator",  "inputs": ["Event"],  "output": "Event",  "instanceNumber": 1, "configuration": {} },
+    { "organizationID": "orgB", "hostURL": "http://localhost:8083", "templateID": "SimpleOperator",  "inputs": ["Event"],  "output": "Event",  "instanceNumber": 2, "configuration": {} },
+    { "organizationID": "sink-service", "hostURL": "http://localhost:8086", "templateID": "SimpleSink",  "inputs": ["Event","Event"],  "output": null,  "instanceNumber": 1, "configuration": {} }
+  ],
+
+  "channels": [
+    {
+      "publisher": { "organizationID": "ingestion-service", "hostURL": "http://localhost:8081", "templateID": "SimpleSource", "inputs": [], "output": "Event", "instanceNumber": 1,
+        "configuration": {
+          "eventSource": {
+            "url": "http://localhost:8071/sse/events"
+          },
+          "filters": {
+            "dept": ["IT"]
+          },
+          "attributeMapping": {
+            "caseId": "dept",
+            "activity": "activity",
+            "timeStamp": "timestamp"
+          },
+          "anonymization": {
+            "dataSourceId": "student-activity",
+            "pseudonymization": ["name"],
+            "suppression": [],
+            "uniqueField":"studentId"
+          }
+        }
+      },
+      "subscribers": [
+        {
+          "processing element": { "organizationID": "orgB", "hostURL": "http://localhost:8083", "templateID": "SimpleOperator", "inputs": ["Event"], "output": "Event", "instanceNumber": 1, "configuration": {} },
+          "portNumber": 1
+        }
+      ]
+    },
+    {
+      "publisher": { "organizationID": "orgB", "hostURL": "http://localhost:8083", "templateID": "SimpleOperator", "inputs": ["Event"], "output": "Event", "instanceNumber": 1, "configuration": {} },
+      "subscribers": [
+        {
+          "processing element": { "organizationID": "sink-service", "hostURL": "http://localhost:8086", "templateID": "SimpleSink", "inputs": ["Event","Event"], "output": null, "instanceNumber": 1, "configuration": {} },
+          "portNumber": 1
+        }
+      ]
+    },
+    {
+      "publisher": { "organizationID": "ingestion-service", "hostURL": "http://localhost:8081", "templateID": "SimpleSource", "inputs": [], "output": "Event", "instanceNumber": 1,
+        "configuration": {
+          "eventSource": {
+            "url": "http://localhost:8071/sse/events"
+          },
+          "filters": {
+            "dept": ["Biochemistry"]
+          },
+          "attributeMapping": {
+            "caseId": "dept",
+            "activity": "activity",
+            "timeStamp": "timestamp"
+          },
+          "anonymization": {
+            "dataSourceId": "student-activity",
+            "pseudonymization": ["name"],
+            "suppression": [],
+            "uniqueField":"studentId"
+          }
+        }
+      },
+      "subscribers": [
+        {
+          "processing element": { "organizationID": "orgB", "hostURL": "http://localhost:8083", "templateID": "SimpleOperator", "inputs": ["Event"], "output": "Event", "instanceNumber": 2, "configuration": {} },
+          "portNumber": 1
+        }
+      ]
+    },
+    {
+      "publisher": { "organizationID": "orgB", "hostURL": "http://localhost:8083", "templateID": "SimpleOperator", "inputs": ["Event"], "output": "Event", "instanceNumber": 2, "configuration": {} },
+      "subscribers": [
+        {
+          "processing element": { "organizationID": "sink-service", "hostURL": "http://localhost:8086", "templateID": "SimpleSink", "inputs": ["Event","Event"], "output": null, "instanceNumber": 1, "configuration": {} },
+          "portNumber": 2
+        }
+      ]
+    }
+  ]
+}

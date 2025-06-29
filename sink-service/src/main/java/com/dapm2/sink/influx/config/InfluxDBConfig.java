@@ -7,7 +7,9 @@ public class InfluxDBConfig {
     public static final String INFLUX_URL = "http://localhost:5086";
     public static final String INFLUX_TOKEN = "dapm_token";
     public static final String INFLUX_ORG = "dapm";
-    public static final String INFLUX_BUCKET = "dapm_bucket";
+    //public static final String INFLUX_BUCKET = "dapm_bucket";
+    public static final String INFLUX_BUCKET = "dapm_std_bucket";
+
 
     public static InfluxDBClient createClient() {
         return InfluxDBClientFactory.create(
