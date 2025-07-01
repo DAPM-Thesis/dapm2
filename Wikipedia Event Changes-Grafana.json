@@ -459,11 +459,11 @@
             "type": "influxdb",
             "uid": "aepmc0ty5nzeoe"
           },
-          "query": "from(bucket: \"dapm_wiki_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"dependency\")\r\n  |> filter(fn: (r) => r.caseId == \"enwiki\" or r.caseId == \"ukwiki\" or r.caseId == \"commonswiki\")\r\n  |> filter(fn: (r) => r.arc_from == \"categorize\" and r.arc_to == \"new\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
+          "query": "from(bucket: \"dapm_wiki_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"dependency\")\r\n  |> filter(fn: (r) => r.caseId == \"enwiki\" or r.caseId == \"ukwiki\" or r.caseId == \"commonswiki\")\r\n  |> filter(fn: (r) => r.arc_from == \"new\" and r.arc_to == \"categorize\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
           "refId": "A"
         }
       ],
-      "title": "Dependency over time: Category to New",
+      "title": "Dependency over time: New to Categorize",
       "type": "timeseries"
     },
     {
@@ -1101,7 +1101,7 @@
       "pluginVersion": "12.0.2",
       "targets": [
         {
-          "query": "from(bucket: \"dapm_wiki_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"frequency\")\r\n  |> filter(fn: (r) => r.caseId == \"enwiki\" or r.caseId == \"ukwiki\" or r.caseId == \"commonswiki\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 1m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
+          "query": "from(bucket: \"dapm_wiki_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"frequency\")\r\n  |> filter(fn: (r) => r.caseId == \"enwiki\" or r.caseId == \"ukwiki\" or r.caseId == \"commonswiki\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 1m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
           "refId": "A"
         }
       ],
@@ -1110,19 +1110,19 @@
     }
   ],
   "preload": false,
-  "refresh": "",
+  "refresh": "10s",
   "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "2025-06-30T08:31:17.000Z",
-    "to": "2025-06-30T10:31:17.000Z"
+    "from": "now-1h",
+    "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Wikipedia Event Changes",
   "uid": "c08042f8-b166-4236-8482-f38c3fcbad03",
-  "version": 18
+  "version": 20
 }

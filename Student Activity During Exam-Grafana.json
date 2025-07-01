@@ -284,11 +284,11 @@
       "pluginVersion": "12.0.2",
       "targets": [
         {
-          "query": "from(bucket: \"dapm_std_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"dependency\")\r\n  |> filter(fn: (r) => r.caseId == \"IT\" or r.caseId == \"Biochemistry\")\r\n  |> filter(fn: (r) => r.arc_from == \"started_exam\" and r.arc_to == \"requested_clarification\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
+          "query": "from(bucket: \"dapm_std_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"dependency\")\r\n  |> filter(fn: (r) => r.caseId == \"IT\" or r.caseId == \"Biochemistry\")\r\n  |> filter(fn: (r) => r.arc_from == \"attended_lecture\" and r.arc_to == \"joined_lab\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
           "refId": "A"
         }
       ],
-      "title": "Dependency over time: Start to Clarification",
+      "title": "Dependency over time: Attend Lecture to Joined Lab",
       "type": "timeseries"
     },
     {
@@ -373,11 +373,11 @@
       "pluginVersion": "12.0.2",
       "targets": [
         {
-          "query": "from(bucket: \"dapm_std_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"dependency\")\r\n  |> filter(fn: (r) => r.caseId == \"IT\" or r.caseId == \"Biochemistry\")\r\n  |> filter(fn: (r) => r.arc_from == \"started_exam\" and r.arc_to == \"paused_exam\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
+          "query": "from(bucket: \"dapm_std_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"dependency\")\r\n  |> filter(fn: (r) => r.caseId == \"IT\" or r.caseId == \"Biochemistry\")\r\n  |> filter(fn: (r) => r.arc_from == \"joined_lab\" and r.arc_to == \"check_portal\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
           "refId": "A"
         }
       ],
-      "title": "Dependency over time: Start to Paused",
+      "title": "Dependency over time: Joined Lab to Check portal",
       "type": "timeseries"
     },
     {
@@ -462,11 +462,11 @@
       "pluginVersion": "12.0.2",
       "targets": [
         {
-          "query": "from(bucket: \"dapm_std_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"dependency\")\r\n  |> filter(fn: (r) => r.caseId == \"IT\" or r.caseId == \"Biochemistry\")\r\n  |> filter(fn: (r) => r.arc_from == \"requested_clarification\" and r.arc_to == \"submitted_answer\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
+          "query": "from(bucket: \"dapm_std_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"dependency\")\r\n  |> filter(fn: (r) => r.caseId == \"IT\" or r.caseId == \"Biochemistry\")\r\n  |> filter(fn: (r) => r.arc_from == \"check_portal\" and r.arc_to == \"took_quiz\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
           "refId": "A"
         }
       ],
-      "title": "Dependency over time: Clarification to Submit",
+      "title": "Dependency over time: Check Portal to Took Quiz",
       "type": "timeseries"
     },
     {
@@ -551,11 +551,11 @@
       "pluginVersion": "12.0.2",
       "targets": [
         {
-          "query": "from(bucket: \"dapm_std_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"dependency\")\r\n  |> filter(fn: (r) => r.caseId == \"IT\" or r.caseId == \"Biochemistry\")\r\n  |> filter(fn: (r) => r.arc_from == \"started_exam\" and r.arc_to == \"submitted_answer\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
+          "query": "from(bucket: \"dapm_std_bucket\")\r\n  |> range(start: -24h)\r\n  |> filter(fn: (r) => r._measurement == \"heuristic_miner_arcs\")\r\n  |> filter(fn: (r) => r._field == \"dependency\")\r\n  |> filter(fn: (r) => r.caseId == \"IT\" or r.caseId == \"Biochemistry\")\r\n  |> filter(fn: (r) => r.arc_from == \"took_quiz\" and r.arc_to == \"submitted_assignment\")\r\n  |> group(columns: [\"caseId\"])\r\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")\r\n",
           "refId": "A"
         }
       ],
-      "title": "Dependency over time: Start to Submit",
+      "title": "Dependency over time: Took Quiz to Submit Assignment",
       "type": "timeseries"
     },
     {
@@ -792,7 +792,15 @@
           },
           "mappings": []
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": ""
+            },
+            "properties": []
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -850,7 +858,20 @@
           },
           "mappings": []
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_value"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "${__field.labels.caseId}"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -860,12 +881,15 @@
       },
       "id": 12,
       "options": {
+        "displayLabels": [
+          "percent"
+        ],
         "legend": {
           "displayMode": "list",
-          "placement": "bottom",
+          "placement": "right",
           "showLegend": true
         },
-        "pieType": "pie",
+        "pieType": "donut",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -908,7 +932,20 @@
           },
           "mappings": []
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_value"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "${__field.labels.caseId}"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -920,10 +957,10 @@
       "options": {
         "legend": {
           "displayMode": "list",
-          "placement": "bottom",
+          "placement": "right",
           "showLegend": true
         },
-        "pieType": "pie",
+        "pieType": "donut",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -949,7 +986,7 @@
     }
   ],
   "preload": false,
-  "refresh": "1h",
+  "refresh": "10s",
   "schemaVersion": 41,
   "tags": [],
   "templating": {
@@ -963,5 +1000,5 @@
   "timezone": "browser",
   "title": "Student Activity During Exam",
   "uid": "dfb597f9-37b4-4e3c-a3ba-f855c6c323e5",
-  "version": 22
+  "version": 30
 }
