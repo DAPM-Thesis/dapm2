@@ -38,7 +38,7 @@ This architecture ensures zero message loss, high throughput, and low end-to-end
 
 ## Technologies
 
-* Java 11+
+* Java 21
 * Apache Maven
 * Apache Kafka
 * InfluxDB 2.x
@@ -51,7 +51,7 @@ This architecture ensures zero message loss, high throughput, and low end-to-end
 * Local or remote Kafka cluster
 * Local or remote InfluxDB instance
 * Grafana installation
-* This dapm2 was build on the top model of dapm-pipeline. So befor running this service dapm-pipeline should be build in local system. For dapm-pipeline follow this github repo instructions: `https://github.com/DAPM-Thesis/dapm-thesis`
+* This dapm2 was build on the top model of dapm-pipeline. So before running this service dapm-pipeline should be build in local system. For dapm-pipeline follow this github repo instructions: `https://github.com/DAPM-Thesis/dapm-thesis`
 
 ## Installation
 
