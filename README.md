@@ -58,8 +58,8 @@ This architecture ensures zero message loss, high throughput, and low end-to-end
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-org/dapm.git
-   cd dapm
+   https://github.com/DAPM-Thesis/dapm2.git
+   cd dapm2
    ```
 
 2. **Build services**
