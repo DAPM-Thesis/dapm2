@@ -69,6 +69,7 @@ This architecture ensures zero message loss, high throughput, and low end-to-end
 
 
 ## Installation
+We have tested our implemented solution, dapm2, using two examples: Wikimedia Edit and the Demo Student Activity Simulator. In the Git branch “main”, you will find the example for wiki editing. For the demo project, you will need to switch to the Git branch “std-dashboard”.
 
 1. **Clone the repository**
 
