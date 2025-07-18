@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a2532f46-5456-4e1b-8616-154f7559dca1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingestion-service/src/main/java/templates/SourceA.java" beforeDir="false" afterPath="$PROJECT_DIR$/ingestion-service/src/main/java/templates/SourceA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="std-dashboard" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -175,6 +181,7 @@
       <workItem from="1751118919387" duration="35000" />
       <workItem from="1751181985593" duration="26755000" />
       <workItem from="1751369213648" duration="861000" />
+      <workItem from="1752815043632" duration="6247000" />
     </task>
     <servers />
   </component>

@@ -50,7 +50,11 @@ public class SourceA extends SimpleSource<Event> {
         json = anonymizationProcess.apply(json);
 
         Event dapmEvent = attributeProcess.extractEvent(json);
-        System.out.println("Event Ingested!!!");
+        String caseID = dapmEvent.getCaseID();
+        String activity = dapmEvent.getActivity();
+        String timestamp = dapmEvent.getTimestamp();
+        System.out.println("Event Ingested:");
+        System.out.println("caseID= " + caseID + ", activity= " + activity + ", timestamp= " + timestamp);
         return dapmEvent;
     }
 }

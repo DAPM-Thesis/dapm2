@@ -71,7 +71,7 @@ public class AnonymizationMappingService {
                     .get(AppConstants.Anonymized_Data, Document.class);
             if (anon != null && anon.containsKey(fieldName)) {
                 // reuse token
-                System.out.println("Duplicate value found for " + fieldName + " = " + anon.getString(fieldName));
+                System.out.println("Duplicate value found on " + fieldName + " = " + anon.getString(fieldName));
                 return anon.getString(fieldName);
             }
         }
