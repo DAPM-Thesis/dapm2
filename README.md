@@ -47,11 +47,26 @@ This architecture ensures zero message loss, high throughput, and low end-to-end
 
 ## Prerequisites
 
-* Docker & Docker Compose 
-* Local or remote Kafka cluster
-* Local or remote InfluxDB instance
-* Grafana installation
+* Java 21 
+* Apache Maven
+* Git
+* Docker and Docker Compose
 * This dapm2 was build on the top model of dapm-pipeline. So before running this service dapm-pipeline should be build in local system. For dapm-pipeline follow this github repo instructions: `https://github.com/DAPM-Thesis/dapm-thesis`
+ or
+1. clone the dapma-thesis project from `https://github.com/DAPM-Thesis/dapm-thesis`
+2. Build annotation-processor project:
+   ```bash
+   cd annotation-processor
+   mvn clean install
+   ```
+
+3. Build dapm-pipeline:
+   ```bash
+   cd dapm-pipeline
+   mvn clean install
+   ```
+
+
 
 ## Installation
 
@@ -84,44 +99,17 @@ This architecture ensures zero message loss, high throughput, and low end-to-end
 
 ## Configuration
 
-Each service reads configuration from `src/main/resources/application.yml`. Key settings:
-
-* **Kafka**
-
-  ```yaml
-  kafka:
-    bootstrap-servers: localhost:9092
-    topics:
-      raw: dapm-raw
-      metrics: dapm-metrics
-  ```
-
-* **InfluxDB**
-
-  ```yaml
-  influx:
-    url: http://localhost:8086
-    token: YOUR_INFLUX_TOKEN
-    org: YOUR_ORG
-    bucket: dapm_bucket
-  ```
-
-* **Anonymization & Filtering**
-
-  ```yaml
-  dapm:
-    filter:
-      enabled: true
-      rules:
-        - field: timestamp
-          min: 2025-01-01
-    anonymization:
-      fields:
-        - userId
-        - sessionId
-  ```
-
-Update values in each service’s `application.properties` before running.
+Each service reads configuration from `src/main/resources/application.properties`.So, Update values in each service’s `application.properties` before running if need to change per service.
+If want to change pipeline configuration(assambly of different PE and channel), then go to the `client-service\src\main\resources` and edit or create new pipeline JSON configuration file. And lastly replace the name on "\client-service\src\main\java\com\example\client\ClientServiceApplication.java" with following line:
+```bash
+String contents;
+try {
+   contents = Files.readString(Paths.get("src/main/resources/multiple_PE_pipeline_with_config.json"));
+} catch (IOException e) {
+   throw new RuntimeException(e);
+}
+```
+Note: `multiple_PE_pipeline_with_config.json` is the configuration file name.
 
 ## Running the Services
 
@@ -132,7 +120,7 @@ Start each microservice in a separate terminal (or background process) and follo
 4. client-service
 
 ```bash
-mvn clean instal
+mvn clean install
 mvn spring-boot:run
 ```
 
@@ -140,18 +128,19 @@ The **Client Service** serves as the entry point for the pipeline: it reads conf
 
 ## Visualizing Results
 
-1.**InfluxDB**: Open `http://localhost:8086`, log in, and add InfluxDB as a data source.
-2. **Grafana**: Open `http://localhost:3000`, log in, and add InfluxDB as a data source.
-3. **Dashboards**: Import the provided dashboard from root dapm2 to visualize mining metrics of Wikimedia and Student Simulator from main branch or download from below:
+1.**InfluxDB**: Open `http://localhost:8086`, log in(User: dapm_use,Password: 12345678), and add InfluxDB as a data source.
+2. **Grafana**: Open `http://localhost:3000`, log in(User: admin,Password: admin), and add InfluxDB as a data source.
+3. **MongoDB Compass connection string**: `mongodb://dapm_user:123456@dapm2.compute.dtu.dk/:27017/dapm_mapping_table?authSource=admin` for Enter into mongoDB compass.
+4. **Dashboards**: Import the provided dashboard from root dapm2 to visualize mining metrics of Wikimedia and Student Simulator from main branch or download from below:
 [Student Activity During Exam-Grafana.json](https://github.com/user-attachments/files/21302590/Student.Activity.During.Exam-Grafana.json), 
 [Wikipedia Event Changes-Grafana.json](https://github.com/user-attachments/files/21302591/Wikipedia.Event.Changes-Grafana.json)
 
+We used default password for every services and dashboards, change it when needed.
 
 ## Troubleshooting
 
-* **Kafka connection issues**: Ensure `bootstrap-servers` matches your cluster.
+* **Kafka connection issues**: Ensure `kafka-cluster` matches your cluster.
 * **InfluxDB errors**: Verify token, organization, and bucket settings.
-* **Permission denied**: Check file permissions and Java version.
 
 ## Contributing
 
@@ -159,7 +148,6 @@ Contributions are welcome! Please:
 
 1. Fork the repo
 2. Create a feature branch
-3. Submit a pull request
 
 Ensure all tests pass and follow the project’s coding conventions.
 
