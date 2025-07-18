@@ -128,7 +128,7 @@ The **Client Service** serves as the entry point for the pipeline: it reads conf
 
 ## Visualizing Results
 
-1.**InfluxDB**: Open `http://localhost:8086`, log in(User: dapm_use,Password: 12345678), and add InfluxDB as a data source.
+1. **InfluxDB**: Open `http://localhost:8086`, log in(User: dapm_use,Password: 12345678), and add InfluxDB as a data source.
 2. **Grafana**: Open `http://localhost:3000`, log in(User: admin,Password: admin), and add InfluxDB as a data source.
 3. **MongoDB Compass connection string**: `mongodb://dapm_user:123456@dapm2.compute.dtu.dk/:27017/dapm_mapping_table?authSource=admin` for Enter into mongoDB compass.
 4. **Dashboards**: Import the provided dashboard from root dapm2 to visualize mining metrics of Wikimedia and Student Simulator from main branch or download from below:
