@@ -30,6 +30,10 @@ public class EventOperatorB extends SimpleOperator<Event> {
     protected Event process(Message message, int portNumber) {
         System.out.println("Event Arrived!!!");
         Event e = (Event) message;
+        String caseID = e.getCaseID();
+        String activity = e.getActivity();
+        String times = e.getTimestamp();
+        System.out.println("caseID= " + caseID + ", activity= " + activity + ", timestamp= " + times);
         // 1) Update the in‐process
         List<DirectFollow> metrics = new ArrayList<>();
         miner.addEvent(e);
