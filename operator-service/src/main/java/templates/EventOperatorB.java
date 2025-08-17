@@ -67,6 +67,7 @@ public class EventOperatorB extends SimpleOperator<Event> {
                 newAttributes
         );
         System.out.println("Sending to the Sink!!!");
+        System.out.println();
         return newEvent;
     }
     @Override
