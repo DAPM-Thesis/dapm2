@@ -78,6 +78,7 @@ public class SinkA extends Sink {
 
                     System.out.println("Writing to InfluxDB!!");
                     writeApi.writePoint(point);
+                    System.out.println();
                 }
             }
         } catch (Exception ex) {
