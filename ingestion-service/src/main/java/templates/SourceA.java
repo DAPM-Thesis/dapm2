@@ -44,6 +44,7 @@ public class SourceA extends SimpleSource<Event> {
 
         if (!filtrationProcess.shouldPass(json)) {
             System.out.println("filtered out, pulling next =>>");
+            System.out.println();
             return null;  // will cause SimpleSource to call process() again
         }
 
@@ -55,6 +56,7 @@ public class SourceA extends SimpleSource<Event> {
         String timestamp = dapmEvent.getTimestamp();
         System.out.println("Event Ingested:");
         System.out.println("caseID= " + caseID + ", activity= " + activity + ", timestamp= " + timestamp);
+        System.out.println();
         return dapmEvent;
     }
 }
