@@ -80,6 +80,7 @@ public class SinkA extends Sink {
                     writeApi.writePoint(point);
                 }
             }
+            System.out.println();
         } catch (Exception ex) {
             ex.printStackTrace();
             System.err.println("Error parsing payload or writing to InfluxDB.");
